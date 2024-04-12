@@ -207,8 +207,8 @@
               <div class="col-lg-3 mb-4 instrument-box">
                   <img src="sompoton.png" alt="Sompoton" class="instrument-img" onclick="showInfoPopup('Sompoton',
                   'The Sompoton is a traditional musical instrument native to the Kadazandusun ethnic group of Sabah, Malaysia. ',
-                  'playing-Sompoton.png',
                   '',
+                  'https://www.youtube.com/embed/UBAUpNy1mLE?si=wbYzn5qX07QHfHc8',
                   'The Sompoton is a bamboo mouth organ that consists of several bamboo pipes of varying lengths bound together with rattan or other natural fibers. Each pipe produces a different pitch when blown into, similar to the concept of a pan flute. The pipes are arranged in a row and secured to a wooden frame, allowing the player to hold and manipulate the instrument comfortably. Playing the Sompoton involves blowing air into the bamboo pipes while simultaneously covering and uncovering the finger holes to produce different notes. ',
                   '')">
                     <h3>Sompoton</h3>
@@ -226,7 +226,7 @@
                   <img src="sape.png" alt="Sape" class="instrument-img" onclick="showInfoPopup('Sape',
                   'The Sape, also known as the Sapeh or Sampek, is a traditional stringed musical instrument originating from the indigenous communities of Sarawak, Malaysia, particularly among the Orang Ulu tribes such as the Kenyah, Kayan, and Kelabit.',
                   '',
-                  'Sape.mp4',
+                  'https://www.youtube.com/embed/H5eEnGJ2qok?si=DnMo9Jab6I2HsroM',
                   'The Sape is a carved wooden lute-like instrument with a long, slender neck and a resonating body. It typically has four strings, although some variations may have up to six strings. The body of the Sape is usually made from a single piece of hardwood, such as Belian or Meranti, which is hollowed out and carved into a distinctive boat-shaped form. The neck may be adorned with intricate carvings and decorative motifs, reflecting the craftsmanship and cultural symbolism of the instrument. Playing the Sape involves plucking or strumming the strings with the fingers or a plectrum, while simultaneously manipulating the frets on the neck to produce different pitches and melodies.',
                   '')">
                     <h3>Sape</h3>
@@ -247,8 +247,8 @@
               <div class="col-lg-3 mb-4 dance-box">
                   <img src="magunatip.png" alt="Magunatip" class="dance-img" onclick="showInfoPopup('Magunatip',
                   'Magunatip, also known as the bamboo dance, is one of the most popular traditional dance from the Kadazan-Dusun community of Sabah, Malaysia. This iconic dance which requires dancers to have speed and agility is performed by the Murut people.',
-                  'magunatipDance.png',
                   '',
+                  'https://www.youtube.com/embed/0ZU7rAT6pTM?si=JpbrOhDIpW92DPA0',
                   'In order to perform this dance, three pairs of long bamboo poles are laid out horizontally on the ground. Each pair of bamboo poles are held by two bamboo strikers at opposite ends to form three rows of clapping poles. Magunatip requires a high level of skill, agility, and coordination from the dancers. They must navigate the bamboo poles with precision, stepping in and out between them without tripping or getting their feet caught. The footwork is often fast-paced and intricate, adding to the visual appeal of the dance. Magunatip is an important cultural herritage of Sabah now. It is performed during festivals like Keamatan or Harvest festival.',
                   '')">
                   <h3>Magunatip</h3>
@@ -257,7 +257,7 @@
                   <img src="sumazau.png" alt="Sumazau" class="dance-img" onclick="showInfoPopup('Sumazau',
                   'Sumazau is a traditional dance originated from the largest indigenous group of Sabah, the Kadazan-Dusun people.',
                   '',
-                  'Sumazau.mp4',
+                  'https://www.youtube.com/embed/nUXZaSTfFYE?si=T95AEm0Dta9iJTUj',
                   'The musical instruments that often accompanies the Sumazau dance are gongs and drums. Sumazau is not only performed as thanksgiving for harvest, resistance against oppression, polytheistic worship, and to cure diseases but also during festivals, weddings and other celebrations. The dancers who are in male-female pairs imitate the movement of a flying eagle by stretching their arms on both sides and swing them up and down. Sumazau is typically performed by dancers dressed in traditional Kadazandusun attire, which includes colorful costumes adorned with beads, feathers, and other decorative elements. ',
                   '')">
                       <h3>Sumazau</h3>
@@ -275,7 +275,7 @@
                 <img src="warrior-dance.png" alt="Warrior Dance" class="dance-img" onclick="showInfoPopup('Warrior Dance',
                 'The Warrior Dance, also known as Tarian Pahlawan in Malay, is a traditional dance form that portrays the bravery, strength, and valor of warriors in Malaysian culture. This dance is inspired by the martial traditions and historical narratives of various ethnic communities across Malaysia, including the Malay, Orang Asli, and indigenous tribes of Sabah and Sarawak.',
                 '',
-                'warriorDance.mp4',
+                'https://www.youtube.com/embed/nneZ77B1Dd0?si=NNxvucl7wIfi1R83',
                 'The Warrior Dance often draws inspiration from historical events, legends, and folklore surrounding warriors and their heroic deeds. These narratives may include stories of legendary figures, battles, conquests, and acts of valor that are celebrated within Malaysian cultural heritage. The movements and gestures in the Warrior Dance are highly symbolic, representing various aspects of warrior culture, such as bravery, agility, and combat techniques. Dancers may use props such as spears, swords, shields, and traditional weaponry to enhance the visual storytelling and evoke the spirit of ancient warriors. Dancers typically wear elaborate costumes and attire that reflect the cultural traditions and martial heritage of their respective ethnic communities. These costumes may include traditional garments, armor, headdresses, and accessories adorned with symbols, motifs, and colors associated with warrior symbolism.',
                 '')">
                     <h3>Warrior Dance</h3>
@@ -310,7 +310,7 @@
     });
 </script>
 <script>
-function showInfoPopup(title, description, imageSrc, videoSrc, articleContent, audioSrc) {
+function showInfoPopup(title, description, imageSrc, videoLink, articleContent, audioSrc) {
   document.getElementById("popupTitle").innerHTML = title.replace(/\n/g, '<br>') + '<hr>';;
   document.getElementById("popupDescription").innerHTML = description;
   document.getElementById("imageContainer").innerHTML = "";
@@ -325,12 +325,18 @@ function showInfoPopup(title, description, imageSrc, videoSrc, articleContent, a
     document.getElementById("imageContainer").appendChild(imageElement);
   }
 
-  if (videoSrc) {
-      var videoElement = document.createElement("video");
-      videoElement.controls = true;
-      videoElement.src = videoSrc;
-      document.getElementById("videoContainer").appendChild(videoElement);
-  }
+if (videoLink) {
+    var videoElement = document.createElement("iframe");
+    videoElement.width = "560";
+    videoElement.height = "315";
+    videoElement.src = videoLink;
+    videoElement.allowFullscreen = true;
+    videoElement.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+    videoElement.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+    videoElement.style.display = "block";
+    videoElement.style.margin = "0 auto"; // Center the video horizontally
+    document.getElementById("videoContainer").appendChild(videoElement);
+}
 
   if (articleContent) {
       var articleElement = document.createElement("article");
