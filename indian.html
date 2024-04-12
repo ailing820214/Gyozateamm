@@ -208,7 +208,7 @@
       <div class="col-lg-3 mb-4 instrument-box">
         <img src="tabla.png" alt="Tabla" class="instrument-img" onclick="showInfoPopup('<br>Tabla',
                    'The tabla is a popular percussion instrument originating from India. It consists of a pair of hand drums, typically made of wood, metal, or clay, and covered with stretched animal skin. The larger drum, known as the dayan or tabla produces higher-pitched sounds, while the smaller drum called the bayan or duggi produces deeper tones.',
-                   '','playing-Tabla.mp4',
+                   '','https://www.youtube.com/embed/Wt387_C6nqA?si=hl0UIWnhUgeUeJBL',
                    'Playing Tabla involves intricate finger movements and techniques to produce a wide range of sounds, from sharp, percussive notes to resonant tones. The player uses the fingers and palms of both hands to strike the drums, with each finger producing a distinct sound. Additionally, the tabla player may use the heel of the hand, the wrist, or even the fingertips to create various articulations and embellishments.  It plays a central role in traditional Indian music ensembles, accompanying vocalists, instrumentalists, and dancers. It is also featured prominently in solo performances, where tabla players showcase their virtuosity and improvisational skills.',
                    '')">
         <h3>Tabla</h3>
@@ -232,7 +232,7 @@
       <div class="col-lg-3 mb-4 instrument-box">
         <img src="sitar.png" alt="Sitar" class="instrument-img" onclick="showInfoPopup('<br>Sitar',
               'Sitar is a plucked string instrument popularized by Hindustani classical music. From the mid-20th century on, the sitar influenced worldwide rock, jazz, and pop music. In addition to sitars now being seen in multiple musical genres, many string instruments are tuned to imitate the sitar.',
-              'playing-Sitar.png','',
+              '','https://www.youtube.com/embed/k3lyvlRTAes?si=XBuRGMDEBSjoQsUQ',
               'Sitar is made up of seasoned toon wood or teak. It is often referred to as the prince of Indian instruments, has made its mark in Malaysia as a symbol of rich cultural heritage and musical traditions for Indians. The Sitar instrument is typically 1.2 meters, or four feet, in length and is played sitting down with the instrument held at a 45-degree angle. The sitar is a plucked string instrument with a long neck, resonating gourd body, and movable frets. The resonator(s) are made from gourd—either pumpkin, calabash, or a wood replica. Bridge styles and materials vary depending on the preference of the musician or instrument maker. The same is true of the tabli, or soundboard. Altering the bridge to affect the quality of sound is called jawari, and is often achieved by filing down the bridge to a specific curve.<br><br>Sound of Sitar:',
               'Sitar.mp3')">
         <h3>Sitar</h3>
@@ -245,7 +245,7 @@
         <img src="bharatanatyam.png" alt="Bharatanatyam" class="dance-img" onclick="showInfoPopup('<br>Bharatanatyam',
                 'Bharatanatyam is one of the oldest classical dances from India. This dance started off in the temples of Tamil Nadu and slowly spread across South India and eventually made its way to Malaysia.',
                 '',
-                'Bharatanatyam.mp4',
+                'https://www.youtube.com/embed/Ft7MjyglZT0?si=AMvSX252L6r44aTn',
                 'The word Bharatanatyam describes the dance. Natyam means dance in Sanskrit. Bharata is a mnemonic:<br><br>Bha - derived from the word Bhava means emotions and feelings<br><br>Ra - derived from the word Raaga means melody<br><br>Ta - derived from the word Tala means rhythm<br><br>The dancers wear traditional costume with jewellery and make up. Men wear pleated dhothis covering the lower portion of the body while a few pieces of jewellery cover the upper portion. Women wear tailor-made sari with specially stitched in pleats and jewellery. It is essential for all dancers to wear ankle bells as it help them keep a proper rhythm of their leg movements with the “Tala” sounds.',
                 '')">
         <h3>Bharatanatyam</h3>
@@ -272,7 +272,7 @@
         <img src="odissi.png" alt="Odissi" class="dance-img" onclick="showInfoPopup('<br>Odissi',
               'Odissi is traditionally a dance-drama genre of performance art, where the artist(s) and musicians play out a story, a spiritual message or devotional poem from the Hindu texts. It is one of the ancient dance forms that originated in the temples of Odisha.',
               '',
-              'Odissi.mp4',
+              'https://www.youtube.com/embed/OUqGX-DucC8?si=vhL4luMXVec_a8-I',
               'Odissi dance is marked with graceful postures, emotive facial expressions, bright costumes, and makeup. The dancer uses intricate hand gestures to convey emotions, depict various characters, and tell stories. The versatile footwork complimenting the rhythm and music adds to the fluidity and expressiveness of the dance form. Odissi is performed by women who presented stories in the form of dance - dramas in praise of Lord Vishnu.',
               '')">
         <h3>Odissi</h3>
@@ -308,7 +308,7 @@
   </script>
   <script>
 
-    function showInfoPopup(title, description, imageSrc, videoSrc, articleContent, audioSrc) {
+    function showInfoPopup(title, description, imageSrc, videoLink, articleContent, audioSrc) {
       document.getElementById("popupTitle").innerHTML = title.replace(/\n/g, '<br>') + '<hr>';;
       document.getElementById("popupDescription").innerHTML = description;
       document.getElementById("imageContainer").innerHTML = "";
@@ -322,12 +322,18 @@
         imageElement.src = imageSrc;
         document.getElementById("imageContainer").appendChild(imageElement);
       }
-
-      if (videoSrc) {
-        var videoElement = document.createElement("video");
-        videoElement.controls = true;
-        videoElement.src = videoSrc;
-        document.getElementById("videoContainer").appendChild(videoElement);
+      
+      if (videoLink) {
+          var videoElement = document.createElement("iframe");
+          videoElement.width = "560";
+          videoElement.height = "315";
+          videoElement.src = videoLink;
+          videoElement.allowFullscreen = true;
+          videoElement.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+          videoElement.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+          videoElement.style.display = "block";
+          videoElement.style.margin = "0 auto"; // Center the video horizontally
+          document.getElementById("videoContainer").appendChild(videoElement);
       }
 
       if (articleContent) {
