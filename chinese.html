@@ -220,7 +220,7 @@
         <img src="erhu.png" alt="Erhu" class="instrument-img" onclick="showInfoPopup('<br>Erhu',
                 'The Erhu is a traditional Chinese two-stringed bowed musical instrument. It is also known as the Chinese violin in the Western World. Erhu is often played in Chinese Opera performances and traditional orchestras.  It allows for a high degree of virtuosity, covers three octaves, and can be made to imitate the sound of Chinese singing as well as birds and horses. It produces a melancholy sound.',
                 '',
-                'Erhu.mp4',
+                'https://www.youtube.com/embed/thqUc1bf8IU?si=OuB21ISM3wD8vhIg',
                 'The Erhu consists of a long, slender neck made of wood, typically red sandalwood or rosewood, attached to a small resonator covered with python or snake skin. The instrument has two strings, traditionally made of silk, but modern versions may use nylon or metal strings. The bow used to play the Erhu is traditionally made of bamboo, with horsehair or synthetic fibers stretched between the ends. The most famous piece of erhu music in China is Two Springs Reflect the Moon (二泉映月). The music was composed by a blind streetside folk musician called Ah Bing (阿炳). He composed the music to express the grief of his bitter life in the old society. Two Springs Reflect the Moon became an exquisite example of Chinese traditional instrument music.',
                 '')">
         <h3>Erhu</h3>
@@ -260,7 +260,7 @@
         <img src="fan-dance.png" alt="Fan Dance" class="dance-img" onclick="showInfoPopup('',
                   'The Fan Dance is a traditional Chinese dance that is renowned for its elegance, grace, and beauty. It is a captivating performance that combines precise movements, flowing costumes, and delicate handheld fans.',
                   '',
-                  'Fan-Dance.mp4',
+                  'https://www.youtube.com/embed/0pdbtaM4iTE?si=MUEpvBqoecqe8Dz0',
                   'The Fan Dance is accompanied by traditional Chinese music, including melodic tunes and rhythmic beats that set the mood and atmosphere of the performance. Musicians may play traditional instruments such as the pipa, guzheng, or erhu, along with percussion instruments like drums, cymbals, and gongs. Dancers typically wear vibrant and ornate traditional Chinese attire, such as flowing silk dresses or robes adorned with intricate embroidery, sequins, and other decorative elements. The costumes are designed to accentuate the movements of dancers and create a sense of fluidity, elegance and grace.',
                   '')">
         <h3>Fan Dance</h3>
@@ -314,7 +314,7 @@
       });
   </script>
   <script>
-    function showInfoPopup(title, description, imageSrc, videoSrc, articleContent, audioSrc) {
+    function showInfoPopup(title, description, imageSrc, videoLink, articleContent, audioSrc) {
       document.getElementById("popupTitle").innerHTML = title.replace(/\n/g, '<br>') + '<hr>';;
       document.getElementById("popupDescription").innerHTML = description;
       document.getElementById("imageContainer").innerHTML = "";
@@ -329,10 +329,16 @@
         document.getElementById("imageContainer").appendChild(imageElement);
       }
 
-      if (videoSrc) {
-        var videoElement = document.createElement("video");
-        videoElement.controls = true;
-        videoElement.src = videoSrc;
+      if (videoLink) {
+        var videoElement = document.createElement("iframe");
+        videoElement.width = "560";
+        videoElement.height = "315";
+        videoElement.src = videoLink;
+        videoElement.allowFullscreen = true;
+        videoElement.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+        videoElement.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        videoElement.style.display = "block";
+        videoElement.style.margin = "0 auto"; 
         document.getElementById("videoContainer").appendChild(videoElement);
       }
 
