@@ -209,7 +209,7 @@
       <div class="col-lg-3 mb-4 instrument-box">
         <img src="kompang.png" alt="Kompang" class="instrument-img" onclick="showInfoPopup('<br>Kompang',
                      'Kompang is a traditional hand drum widely used in Malay culture, particularly in Malaysia, Brunei, Singapore, and parts of Indonesia. It holds deep cultural significance and is an integral part of various ceremonies, celebrations, and cultural events.',
-                     '','https://youtu.be/uPCW1-nM-nI?si=lRxlkDdUHsJKsmr1',
+                     '','https://www.youtube.com/embed/uPCW1-nM-nI?si=pynkoGjLaHh0iGSi',
                      'Kompang is a hand-held drum typically made of wood, with a goat or buffalo skin stretched tightly over one of its openings. The drumhead is traditionally fastened to the body using rope or leather straps. Its size and shape can vary, but it usually has a circular or slightly oblong frame. Some kompang drums feature intricate carvings or decorative elements on the wooden frame, reflecting the craftsmanship and cultural heritage of the region. Kompang is also an essential part of traditional Malay performing arts, accompanying dances, theatrical performances, and martial arts demonstrations. Beyond its musical and cultural importance, kompang is seen as a symbol of unity, community spirit, and cultural identity, bringing people together through shared rhythmic expression.<br><br>Melodies of Kompang:',
                      'Kompang.mp3')">
         <h3>Kompang</h3>
@@ -219,7 +219,7 @@
           onclick="showInfoPopup('<br>Gamelan', 
                   'Gamelan is a traditional ensemble music originated from Indonesia, but it had a significant influence in Malaysia, particularly in the states of Kelantan, Terengganu, and Johor. In Malaysia, gamelan music is often associated with traditional Malay culture and is used in various ceremonies, performances, and cultural events.',
                   '',
-                  'https://youtu.be/wPHnY8i7-qE?si=cYKQnlVhPm4S-sW0', 
+                  'https://www.youtube.com/embed/wPHnY8i7-qE?si=hXxl_Inn_T8Dlqag', 
                   'The Malaysian gamelan ensemble typically consists of a variety of instruments, including gongs, drums, xylophones, and string instruments. Each instrument in the ensemble has a specific role and contributes to the overall sound and texture of the music.','')">
         <h3>Gamelan</h3>
       </div>
@@ -247,7 +247,7 @@
         <img src="zapin.png" alt="Zapin" class="dance-img"
           onclick="showInfoPopup('<br>Zapin',
                   'Zapin is a style of music and dance brought by traders and missionaries from Yemen during the Islamization of the region in the 14th century and was originally knows as zafin. It is originating from Malay Peninsula and parts of Sumatra, Indonesia.',
-                  '','https://youtu.be/eW3BfXjeGVQ?si=G-Fw5W-agPkOldKd',
+                  '','https://www.youtube.com/embed/eW3BfXjeGVQ?si=o_XPkl_P2b-PMTbn',
                   'The music and dance was accompanied by the singing praises to God and therefore became both a means of spreading Islam and of entertainment. Zapin was once exclusively performed by males. Now, zapin can be performed by male-female pairs though it is still more commonly performed by all-male groups. Zapin dance is characterized by its graceful movements, rhythmic footwork, and intricate hand gestures. Typically performed in a group setting, Zapin is often accompanied by live music, including traditional Malay instruments such as the gendang (drum) and seruling (flute). The dance is deeply rooted in Malay culture and is commonly performed at weddings, cultural festivals, and other celebratory events.','')">
         <h3>Zapin</h3>
       </div>
@@ -324,10 +324,13 @@
       }
 
       if (videoLink) {
-        var videoElement = document.createElement("video");
-        videoElement.controls = true;
+        var videoElement = document.createElement("iframe");
+        videoElement.width = "560";
+        videoElement.height = "315";
         videoElement.src = videoLink;
-        videoElement.style.maxWidth = "100%";
+        videoElement.allowFullscreen = true;
+        videoElement.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+        videoElement.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
         document.getElementById("videoContainer").appendChild(videoElement);
       }
 
